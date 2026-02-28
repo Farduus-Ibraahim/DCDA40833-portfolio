@@ -4,57 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualization Critique | Farduus Ibraahim</title>
+
+    <!-- ADDED: Same Google Fonts as index.html so typography matches across all pages -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="lab02.html">Lab 2: AI Evaluation</a>
-            <a href="lab03.html" class="active">Lab 3: Visualization Critique</a>
-            <!-- Add more lab links as the semester progresses -->
-        </nav>
-        <h1>Visualization Critique</h1>
+
+    <!-- ADDED: Same navbar structure as index.html -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <span class="nav-logo">FI</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lab02.html">AI Evaluation</a></li>
+                <li><a href="lab03.html" class="active">Tufte Critique</a></li>
+                <li><a href="lab04.html">Tableau Viz</a></li>
+                <li><a href="lab05.html">Lab 5</a></li>
+                <li><a href="hometown-map.html">Hometown Map</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ADDED: Compact lab page header with navy + gold palette -->
+    <header class="lab-hero">
+        <div class="lab-hero-content">
+            <p class="lab-eyebrow">Lab 03 · Design Theory</p>
+            <h1 class="lab-title">Visualization Critique</h1>
+            <div class="hero-line"></div>
+        </div>
     </header>
 
-    <main>
-        <section>
+    <main class="lab-main">
+
+        <section class="lab-section">
             <h2>Visualization</h2>
-            <figure>
-                <img src="images/LLMs.png" alt="Description of the infographic" width="500">
+            <figure class="viz-container">
+                <img src="images/LLMs.png" alt="Major Large Language Models infographic" width="500">
                 <figcaption>
-                    <strong>Title:</strong> Major Large Language Models (LLMs)
-
-
-
-<br>
+                    <strong>Title:</strong> Major Large Language Models (LLMs)<br>
                     <strong>Source:</strong> <a href="https://informationisbeautiful.net/visualizations/the-rise-of-generative-ai-large-language-models-llms-like-chatgpt/" target="_blank">Information is Beautiful</a>
                 </figcaption>
             </figure>
         </section>
 
-        <section>
+        <section class="lab-section">
             <h2>Critique</h2>
-            
+
             <h3>Information Resolution</h3>
-            <p>When first viewing the graph analyzing major Large Language Models, my partner and I noticed that we felt a bit overwhelmed by what was happening in the graphic. Deciphering the map is not intuitive, but it becomes more understandable as you spend time with it. There is clear analysis on how these LLMs have changed and developed over time. The form in which these LLMs’ development is being measured is Massive Multitask Language Understanding (MMLU). Which calculates the LLM’s ability to communicate, reason, and share information. Part of the reason that this graphic seems overwhelming is due to the high volume of information it aims to share. This ties directly with Tufte’s idea of resolution, where his goal is to show as much data as possible, while using clean and effective visuals. The argument here is that the human mind is able to intake large amounts of data when it is presented in a straight and direct manner.Although this graph is showing a growth in MMLU, it is only answering the question of what is happening, and gives no context as to why or how this growth is happening. The reason we are unable to answer these questions is due to the minimal qualitative data presented. Later, we are able to see more qualitative data we can join with the first chart, but even then we run into issues of trying to prove causation. </p>
+            <p>When first viewing the graph analyzing major Large Language Models, my partner and I noticed that we felt a bit overwhelmed by what was happening in the graphic. Deciphering the map is not intuitive, but it becomes more understandable as you spend time with it. There is clear analysis on how these LLMs have changed and developed over time. The form in which these LLMs' development is being measured is Massive Multitask Language Understanding (MMLU), which calculates the LLM's ability to communicate, reason, and share information. Part of the reason that this graphic seems overwhelming is due to the high volume of information it aims to share. This ties directly with Tufte's idea of resolution, where his goal is to show as much data as possible while using clean and effective visuals. The argument here is that the human mind is able to intake large amounts of data when it is presented in a straight and direct manner. Although this graph is showing a growth in MMLU, it is only answering the question of what is happening, and gives no context as to why or how this growth is happening.</p>
 
             <h3>Effects Without Causes</h3>
-            <p>After critiquing the visualization part of the data, the two of Tufte’s concerns that we noticed in this data visualization were effects without causes and overreaching. For the effects without causes, we noticed that the visualizations showed strong data and results, however, we noticed that it does not go into detail about how some of the data was collected. One example is the visualization below, “What are people using ChatGPT for?” Looking at it, the effect is visually persuasive, but the lack of explanation lowers the overall clarity, and it does not show us where the data has been collected from, where was it collected from, or by whom it was surveyed.  I like how in the first visualization, the line plot, each circle or diamond has an in depth articles of information with sources, but comparing some of the other visualizations, we could not get more information on it. Because of that, some of the questions we raised were how representative these percentages were. </p>
-            <img src="images/IIB-uses-2552.png" alt="Description of the infographic" width="500">
+            <p>After critiquing the visualization part of the data, the two of Tufte's concerns that we noticed were effects without causes and overreaching. For the effects without causes, we noticed that the visualizations showed strong data and results, however, it does not go into detail about how some of the data was collected. One example is the visualization below, "What are people using ChatGPT for?" Looking at it, the effect is visually persuasive, but the lack of explanation lowers the overall clarity — it does not show us where the data has been collected from, where it was collected, or by whom it was surveyed.</p>
+
+            <figure class="viz-container">
+                <img src="images/IIB-uses-2552.png" alt="What are people using ChatGPT for infographic" width="500">
+                <figcaption>What are people using ChatGPT for? — Information is Beautiful</figcaption>
+            </figure>
 
             <h3>Overreaching</h3>
-            <p>The other Tufte’s concern was overreaching, we noticed that one of the visualizations, “OpenAI, creators of ChatGPT, stole the LLM show,” showed that OpenAI models that performed well, however, it did not account for future uncertainty, alternative metrics, or limitations of the benchmarks themselves. One unanswered question we had was how the visualization is excellent at summarizing trends, but why it is less effective at encouraging critical evaluation of the data.</p>
-             <img src="images/LLM show.png" alt="Description of the infographic" width="500">
+            <p>The other Tufte's concern was overreaching. We noticed that one of the visualizations, "OpenAI, creators of ChatGPT, stole the LLM show," showed that OpenAI models performed well, however it did not account for future uncertainty, alternative metrics, or limitations of the benchmarks themselves. The visualization is excellent at summarizing trends, but less effective at encouraging critical evaluation of the data.</p>
 
+            <figure class="viz-container">
+                <img src="images/LLM show.png" alt="OpenAI creators of ChatGPT stole the LLM show infographic" width="500">
+                <figcaption>OpenAI, creators of ChatGPT, stole the LLM show — Information is Beautiful</figcaption>
+            </figure>
 
             <h3>Conclusion</h3>
             <p>Overall, we think this visualization does a strong job of showing the scale and speed of development in the LLM space, which makes it engaging and informative. However, from a Tufte's perspective, its information resolution could be improved by better integrating causes, assumptions, and methodology directly into the visual design. Right now, the visualization excels at showing what is happening, but it asks the viewer to do much of the work in figuring out why it is happening and what that means.</p>
         </section>
+
     </main>
 
+    <!-- ADDED: Consistent footer matching index.html -->
     <footer>
-        <p>© 2026 Farduus Ibraahim</p>
+        <div class="footer-inner">
+            <div class="footer-name">Farduus Ibraahim</div>
+            <div class="footer-links">
+                <a href="https://github.com/FarduusIbraahim/DCDA40833-portfolio">GitHub Repository</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 · DCDA 40833 · TCU</div>
+        </div>
     </footer>
+
+    <!-- ADDED: Same scroll JS as index.html -->
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        });
+    </script>
+
 </body>
 </html>

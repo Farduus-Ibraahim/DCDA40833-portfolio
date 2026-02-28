@@ -1,182 +1,683 @@
 /* =========================
-   DCDA 40833 Skills Portfolio Template
-   CSS Stylesheet for Student Portfolios
+   Farduus Ibraahim — DCDA 40833
+   Portfolio Stylesheet — Redesigned
+   Aesthetic: Editorial Luxury — cream, deep navy, gold accents
    ========================= */
 
 /* =========================
-   CSS Variables (Color Scheme)
+   Google Fonts Import (fallback if not in <head>)
+   ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* =========================
+   CSS Variables
    ========================= */
 :root {
-    --primary-color: #95a7bf;      /* TCU Purple */
-    --secondary-color: #5a87cf;    /* Light Purple */
-    --accent-color: #06b6d4;       /* Gold accent */
-    --text-color: #333;            /* Dark gray for text */
-    --text-secondary: #64748b;     /* Lighter gray for captions */
-    --bg-color: #f4f4f4;           /* Light background */
-    --white: #ffffff;
+    --navy:       #0f1b2d;
+    --navy-mid:   #1a2e48;
+    --navy-light: #253f5e;
+    --gold:       #c9a84c;
+    --gold-light: #e8c97a;
+    --cream:      #f7f4ef;
+    --cream-dark: #ede9e0;
+    --white:      #ffffff;
+    --text:       #1a1a2e;
+    --text-muted: #6b7280;
+    --border:     rgba(201, 168, 76, 0.2);
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+
+    --radius: 4px;
+    --shadow: 0 4px 24px rgba(15, 27, 45, 0.08);
+    --shadow-hover: 0 12px 40px rgba(15, 27, 45, 0.16);
 }
 
 /* =========================
-   Basic Reset & Typography
+   Reset
    ========================= */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;       /* Smooth scrolling for anchor links */
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
+    font-family: var(--font-body);
+    background-color: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
 /* =========================
-   Header & Navigation
+   Fade-in Animation
    ========================= */
-/* Style semantic tags directly - no classes needed! */
-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.fade-in {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-header h1 {
-    color: white;
-    margin: 0 0 0.5rem 0;
-    font-size: 2rem;
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-header p {
-    margin: 0;
-    opacity: 0.9;
-    font-size: 1.1rem;
-}
-
-nav {
-    background-color: #3d1461;
-    padding: 0.75rem;
-    display: flex;              /* Make nav a flex container */
-    justify-content: center;    /* Center the ul inside nav */
-    position: sticky;           /* Stick to top when scrolling */
+/* =========================
+   Navigation
+   ========================= */
+#navbar {
+    position: fixed;
     top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    left: 0;
+    right: 0;
+    z-index: 200;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    padding: 0;
 }
 
-/* Style the navigation list */
-nav ul {
-    list-style: none;           /* Remove bullets */
-    padding: 0;                 /* Remove default padding */
-    margin: 0;                  /* Remove default margin */
-    display: flex;              /* Arrange items horizontally */
-    flex-direction: row;        /* Explicit: horizontal on desktop */
-    justify-content: center;    /* Center the items */
-    gap: 1rem;                  /* Space between items */
-    flex-wrap: wrap;            /* Wrap on small screens */
+#navbar.scrolled {
+    background: rgba(15, 27, 45, 0.97);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 
-nav li {
-    list-style: none;           /* Extra insurance - remove bullets */
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
-    border-radius: 4px;
-}
-
-nav a:hover {
-    background-color: var(--primary-color);
-}
-
-/* =========================
-   Main Content
-   ========================= */
-/* Style main semantic tag directly */
-main {
-    max-width: 900px;          /* Don't get too wide */
-    margin: 2rem auto;         /* Center horizontally */
-    padding: 0 1rem;           /* Space on sides for mobile */
-}
-
-/* All sections inside main get consistent styling */
-main section {
-    background-color: white;
-    padding: 2rem;
-    margin-bottom: 2rem;       /* Space between sections */
-    border-radius: 8px;        /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Style h2 headings inside sections */
-main section h2 {
-    color: var(--primary-color);
-    border-bottom: 3px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-    font-size: 1.875rem;
-}
-
-main section h3 {
-    color: var(--text-color);
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+.nav-logo {
+    font-family: var(--font-display);
     font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 2px;
 }
 
-/* Paragraphs inside sections */
-main section p {
-    margin-bottom: 1rem;
-    line-height: 1.8;
+#navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
 }
 
-/* Lists inside sections */
-main section ul,
-main section ol {
-    margin: 1rem 0 1rem 2rem;
-    line-height: 1.8;
+#navbar ul li a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius);
+    transition: color 0.2s, background 0.2s;
 }
 
-main section li {
-    margin-bottom: 0.5rem;
+#navbar ul li a:hover {
+    color: var(--gold);
+    background: rgba(201, 168, 76, 0.1);
 }
 
 /* =========================
-   Data Visualizations
+   Hero
    ========================= */
-/* Container for charts and images */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--navy);
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201, 168, 76, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 20% 80%, rgba(37, 63, 94, 0.6) 0%, transparent 60%),
+        linear-gradient(160deg, #0f1b2d 0%, #1a2e48 50%, #0f1b2d 100%);
+}
+
+/* Decorative grid lines */
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(201, 168, 76, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201, 168, 76, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 2rem;
+    animation: heroIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+}
+
+.hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 10vw, 7.5rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+}
+
+.hero-name em {
+    font-style: italic;
+    color: var(--gold-light);
+}
+
+.hero-sub {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2.5rem;
+}
+
+.hero-line {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto;
+    animation: lineGrow 1.5s ease 0.5s both;
+}
+
+@keyframes lineGrow {
+    from { width: 0; opacity: 0; }
+    to   { width: 60px; opacity: 1; }
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    animation: scrollBob 2s ease-in-out infinite;
+}
+
+.hero-scroll::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
+    margin: 0.5rem auto 0;
+}
+
+@keyframes scrollBob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* =========================
+   Section Shared Styles
+   ========================= */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+}
+
+.section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.section-subheading {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+}
+
+/* =========================
+   Welcome Section
+   ========================= */
+.section-welcome {
+    padding: 8rem 0 5rem;
+}
+
+.welcome-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.welcome-quote blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.4;
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+}
+
+.welcome-text p {
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.85;
+    font-weight: 300;
+}
+
+/* =========================
+   About Section
+   ========================= */
+.section-about {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 2rem;
+}
+
+.about-photo-wrap {
+    position: relative;
+    padding-bottom: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.about-photo-frame {
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.about-photo-frame img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    filter: saturate(0.9);
+    transition: filter 0.4s ease;
+}
+
+.about-photo-frame:hover img {
+    filter: saturate(1.1);
+}
+
+.about-photo-accent {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 70%;
+    border: 2px solid var(--gold);
+    border-radius: 2px;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.about-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 0.5rem;
+}
+
+.about-card {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.about-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateX(4px);
+}
+
+.about-card-icon {
+    font-size: 1.2rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.about-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+}
+
+.about-card p {
+    color: #555;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    font-weight: 300;
+}
+
+/* =========================
+   Portfolio Section
+   ========================= */
+.section-portfolio {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+.portfolio-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.35s ease;
+}
+
+.portfolio-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+    border-color: rgba(201, 168, 76, 0.3);
+}
+
+.portfolio-card:hover::before {
+    height: 100%;
+}
+
+.portfolio-card--wide {
+    grid-column: span 2;
+}
+
+.card-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgba(15, 27, 45, 0.08);
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color 0.3s;
+}
+
+.portfolio-card:hover .card-number {
+    color: rgba(201, 168, 76, 0.25);
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+}
+
+.card-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.card-content p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.card-arrow {
+    font-size: 1.2rem;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.3s, transform 0.3s;
+    align-self: center;
+    flex-shrink: 0;
+}
+
+.portfolio-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* =========================
+   Reflection Section
+   ========================= */
+.section-reflection {
+    padding: 5rem 0 8rem;
+    border-top: 1px solid var(--border);
+}
+
+.reflection-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.reflection-item {
+    padding: 2rem;
+    background: var(--navy);
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.reflection-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    border-top: 1px solid rgba(201, 168, 76, 0.15);
+    border-left: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 0 0 0 80px;
+    pointer-events: none;
+}
+
+.reflection-item:hover {
+    transform: translateY(-4px);
+}
+
+.reflection-num {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: rgba(201, 168, 76, 0.15);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.reflection-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 0.75rem;
+}
+
+.reflection-item p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(201, 168, 76, 0.2);
+    padding: 2.5rem 2rem;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: 0.05em;
+}
+
+.footer-links a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+    opacity: 0.7;
+}
+
+.footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+}
+
+/* =========================
+   Shared utility: tables, code, viz
+   (preserved from original for lab pages)
+   ========================= */
 .viz-container {
     margin: 2rem 0;
     text-align: center;
 }
 
 .viz-container img {
-    max-width: 100%;           /* Responsive: never wider than container */
-    height: auto;              /* Maintain aspect ratio */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0.5rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-/* Figure captions */
 .viz-container figcaption {
     font-style: italic;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-top: 0.75rem;
 }
 
-/* Grid layout for multiple visualizations */
 .viz-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -184,237 +685,254 @@ main section li {
     margin: 2rem 0;
 }
 
-/* =========================
-   Code Blocks
-   ========================= */
-/* Improve pre/code styling for Python code */
 pre {
-    background: #2d2d2d;          /* Dark background */
-    color: #f8f8f2;               /* Light text */
-    border: none;
-    border-radius: 8px;
+    background: #1e2a3a;
+    color: #e2e8f0;
+    border-radius: var(--radius);
     padding: 1.5rem;
     overflow-x: auto;
     margin: 1.5rem 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.88rem;
+    line-height: 1.6;
 }
 
 code {
-    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', Consolas, monospace;
 }
 
-/* Inline code (inside paragraphs) */
 p code, li code {
-    background: #f4f4f4;
+    background: var(--cream-dark);
     color: #c7254e;
-    padding: 0.2rem 0.4rem;
+    padding: 0.15rem 0.4rem;
     border-radius: 3px;
-    font-size: 0.9em;
+    font-size: 0.88em;
 }
 
-/* Code block titles */
-.code-title {
-    background: #1e1e1e;
-    color: #9cdcfe;
-    padding: 0.5rem 1rem;
-    border-radius: 8px 8px 0 0;
-    font-family: monospace;
-    font-size: 0.85rem;
-    margin-bottom: -0.5rem;
-}
-
-.code-title + pre {
-    border-radius: 0 0 8px 8px;
-    margin-top: 0;
-}
-
-/* =========================
-   Data Tables
-   ========================= */
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
-    background: white;
+    background: var(--white);
+    font-size: 0.93rem;
 }
 
 th, td {
     padding: 0.75rem 1rem;
     text-align: left;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--cream-dark);
 }
 
 th {
-    background: var(--primary-color);
-    color: white;
-    font-weight: 600;
-}
-
-tr:nth-child(even) {
-    background: #f8f9fa;
-}
-
-.results-table {
-    font-size: 0.95rem;
-    margin: 1.5rem auto;
-    max-width: 700px;
-}
-
-.results-table td {
-    text-align: center;
-}
-
-.results-table td:first-child {
-    text-align: left;
+    background: var(--navy);
+    color: var(--white);
     font-weight: 500;
+    letter-spacing: 0.05em;
 }
 
-/* Highlight key rows */
-.results-table tr.highlight {
-    background: #fff3cd;
-    font-weight: bold;
-}
+tr:nth-child(even) { background: var(--cream); }
 
-/* =========================
-   Framework Connections
-   ========================= */
 .framework-callout {
-    background: linear-gradient(135deg, #f0e7f8, #e9d5ff);
-    border-left: 5px solid var(--secondary-color);
-    border-radius: 8px;
+    background: linear-gradient(135deg, #faf7f0, #f3edd8);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius);
     padding: 1.5rem;
     margin: 2rem 0;
 }
 
 .framework-callout h3 {
-    color: var(--primary-color);
-    margin-top: 0;
-}
-
-.framework-callout strong {
-    color: var(--secondary-color);
+    color: var(--navy);
+    margin-bottom: 0.5rem;
 }
 
 /* =========================
-   Portfolio Cards
+   Responsive
    ========================= */
-/* Grid layout for portfolio cards on home page */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-/* Individual portfolio card styling */
-.portfolio-card {
-    display: block;
-    background: white;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-decoration: none;
-    color: var(--text-color);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.portfolio-card:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 8px 16px rgba(77, 25, 121, 0.15);
-    transform: translateY(-4px);
-}
-
-.portfolio-card h3 {
-    color: var(--primary-color);
-    margin: 0 0 0.5rem 0;
-    font-size: 1.25rem;
-}
-
-.portfolio-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin: 0.75rem 0 0 0;
-    line-height: 1.5;
-}
-
-/* Lab tag badge on portfolio cards */
-.lab-tag {
-    display: inline-block;
-    background: var(--secondary-color);
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* =========================
-   Footer (semantic tag)
-   ========================= */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 2rem;
-}
-
-footer a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* =========================
-   Responsive Design (Mobile)
-   ========================= */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;     /* Smaller on mobile */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
     }
 
-    nav {
-        font-size: 0.9rem;
+    .about-photo-wrap {
+        max-width: 320px;
     }
 
-    /* Stack navigation vertically on mobile */
-    nav ul {
-        flex-direction: column;  /* Change from row to column */
-        align-items: center;     /* Center the stacked items */
+    .welcome-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    nav a {
-        display: block;          /* Full width for easier tapping */
-        width: 100%;
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-card--wide {
+        grid-column: span 1;
+    }
+
+    .reflection-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .nav-inner {
+        padding: 0.9rem 1.25rem;
+    }
+
+    #navbar ul {
+        gap: 0;
+    }
+
+    #navbar ul li a {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.72rem;
+    }
+
+    .hero-name {
+        font-size: 3rem;
+    }
+
+    main {
+        padding: 0 1.25rem;
+    }
+
+    .section-welcome {
+        padding: 6rem 0 4rem;
+    }
+
+    .footer-inner {
+        flex-direction: column;
         text-align: center;
     }
-
-    main section {
-        padding: 1rem;         /* Less padding on mobile */
-    }
-
-    .viz-grid {
-        grid-template-columns: 1fr;  /* Single column on mobile */
-    }
 }
 
-/* =========================
-   Print Styles (Optional)
-   ========================= */
 @media print {
-    nav {
-        display: none;
-    }
+    nav, .hero-scroll { display: none; }
+    .hero { min-height: auto; padding: 3rem 0; }
+}
 
-    main section {
-        box-shadow: none;
-        page-break-inside: avoid;
-    }
+
+/* =========================
+   Lab Page Styles
+   Added so lab02, lab03, lab04 share the same navy + gold design as the homepage.
+   "lab-hero" is a compact dark banner for interior pages (replaces the plain <header>).
+   "lab-main" and "lab-section" give lab content the same white-card layout as index sections.
+   ========================= */
+
+.lab-hero {
+    background: var(--navy);
+    padding: 7rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.lab-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(201, 168, 76, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201, 168, 76, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+}
+
+.lab-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 60% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.lab-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.lab-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.lab-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+    line-height: 1.1;
+}
+
+.lab-main {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.lab-section {
+    background: var(--white);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.lab-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.875rem;
+    font-weight: 400;
+    color: var(--gold);
+    border-bottom: 3px solid var(--navy-light);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.lab-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-top: 1.75rem;
+    margin-bottom: 0.6rem;
+}
+
+.lab-section p {
+    margin-bottom: 1rem;
+    line-height: 1.85;
+    color: #444;
+    font-weight: 300;
+}
+
+.lab-section ul,
+.lab-section ol {
+    margin: 1rem 0 1rem 1.75rem;
+    line-height: 1.8;
+}
+
+.lab-section li {
+    margin-bottom: 0.4rem;
+    color: #444;
+    font-weight: 300;
+}
+
+
+/* =========================
+   Placeholder text style — used in lab05.html for sections not yet filled in.
+   Shows the text in a muted italic style with a dashed border so it's easy to spot.
+   Once you replace placeholder text with your real content, this styling won't apply.
+   ========================= */
+.placeholder-text {
+    color: #a0aec0 !important;
+    font-style: italic;
+    border: 2px dashed #e2e8f0;
+    border-radius: 4px;
+    padding: 1rem;
+    background: #f8fafc;
 }

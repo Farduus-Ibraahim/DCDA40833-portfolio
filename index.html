@@ -4,132 +4,315 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Skills Portfolio showcasing work from DCDA 40833">
-    <meta name="author" content="Your Name">
-    <!-- Updated the page title to include my name so it appears clearly in the browser tab -->
-
+    <meta name="author" content="Farduus Ibraahim">
     <title>Farduus Ibraahim | DCDA 40833 Skills Portfolio</title>
+
+    <!-- CHANGE 1: Added two Google Fonts via <link> tags in the <head>.
+         "Cormorant Garamond" is an elegant serif used for headings and display text.
+         "DM Sans" is a clean, modern sans-serif used for body/paragraph text.
+         Previously the site used the browser's default system fonts (Arial, Helvetica, etc.).
+         Loading fonts here keeps everything in one stylesheet request and avoids flash of unstyled text. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Navigation: Links to all portfolio pages -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="ai-evaluation.html">AI Evaluation</a></li>
-            <li><a href="tufte-critique.html">Tufte Critique</a></li>
-            <li><a href="tableau-visualization.html">Tableau Viz</a></li>
-            <li><a href="lab5.html">Lab 5</a></li>
-            <li><a href="hometown-map.html">Hometown Map</a></li>
-            <a href="lab02.html">Lab 2: AI Evaluation</a>
-            <a href="lab03.html">Lab 3: Visualization Critique</a>
-            <a href="lab04.html">Lab 4: Tableau Visualization</a>
-        </ul>
+
+    <!-- CHANGE 2: Rebuilt the <nav> element structure.
+         Previously the nav had a flat <ul> with duplicate/broken <a> tags outside of <li> elements,
+         which is invalid HTML. Now it is wrapped in a "nav-inner" div for layout control,
+         includes a "nav-logo" span showing my initials "FI" as a personal brand mark,
+         and has a single clean <ul> with one <li> per link — all valid, semantic HTML.
+         The nav also now has id="navbar" so the scroll JavaScript can target it. -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <span class="nav-logo">FI</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lab02.html">AI Evaluation</a></li>
+                <li><a href="lab03.html">Tufte Critique</a></li>
+                <li><a href="lab04.html">Tableau Viz</a></li>
+                <li><a href="lab05.html">Lab 5</a></li>
+                <li><a href="hometown-map.html">Hometown Map</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Header: Your name and course info -->
-    <header>
-        <!-- This header displays my name and is the main introduction to my portfolio -->
-
-        <h1>Farduus Ibraahim</h1>
-        <p>DCDA 40833 Skills Portfolio | Spring 2026</p>
+    <!-- CHANGE 3: Replaced the plain <header> with a full-screen "hero" section.
+         The original header was a simple colored bar with centered text.
+         The new hero uses class="hero" to apply a full-viewport-height dark background
+         with decorative layered gradients and a subtle grid pattern (all done in CSS).
+         
+         Inside the hero:
+         - "hero-bg" div: the decorative dark background layer (styled entirely in CSS)
+         - "hero-eyebrow": small uppercase course/semester label above the name
+         - "hero-name" h1: large display heading using Cormorant Garamond, with the last
+           name wrapped in <em> so it renders in italic gold
+         - "hero-sub": subtitle line in light uppercase letters
+         - "hero-line": a short decorative gold horizontal rule that animates in
+         - "hero-scroll": a small animated "scroll" indicator at the bottom of the screen -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">DCDA 40833 · Spring 2026 · TCU</p>
+            <h1 class="hero-name">Farduus<br><em>Ibraahim</em></h1>
+            <p class="hero-sub">Digital Culture &amp; Data Analytics</p>
+            <div class="hero-line"></div>
+        </div>
+        <div class="hero-scroll">scroll</div>
     </header>
 
     <main>
-        <!-- Welcome Section: Brief introduction to your portfolio -->
-       <!-- This welcome message helps visitors understand the purpose of my portfolio and what they will find here -->
 
-        <section id="welcome">
-            <h2>Welcome</h2>
-            <!-- TODO: Write a brief introduction (2-3 sentences) about your portfolio -->
-            <p>Welcome to my portfolio! This site showcases my work and growth in Digital Culture and Data Analytics throughout the semester. Here, you will find projects, reflections, and skills that highlight how I use data, technology, and design to tell meaningful stories and solve real-world problems.
-</p>
+        <!-- CHANGE 4: Added a numbered section label to each section ("01 — Welcome", etc.).
+             This is a new <div class="section-label"> element at the top of every section.
+             It uses a small gold uppercase label with a short decorative line after it (via CSS ::after).
+             This creates a consistent visual hierarchy across all sections and makes the page
+             feel more like a designed editorial layout rather than a plain document. -->
+
+        <!-- CHANGE 5: Redesigned the Welcome section layout.
+             Originally it was just a heading and a paragraph of text.
+             Now it uses a two-column CSS Grid ("welcome-grid"):
+             - Left column: a large italic blockquote pulled from my intro text, styled as a
+               design element with a gold left border, to immediately catch the reader's eye.
+             - Right column: the original welcome paragraph text.
+             This makes the section visually interesting instead of a wall of text. -->
+        <section id="welcome" class="section-welcome">
+            <div class="section-label">01 — Welcome</div>
+            <div class="welcome-grid">
+                <div class="welcome-quote">
+                    <blockquote>"Data, technology, and storytelling — the intersection where I live."</blockquote>
+                </div>
+                <div class="welcome-text">
+                    <p>Welcome to my portfolio. This site showcases my work and growth in Digital Culture and Data Analytics throughout the semester. Here, you will find projects, reflections, and skills that highlight how I use data, technology, and design to tell meaningful stories and solve real-world problems.</p>
+                </div>
+            </div>
         </section>
 
-        <!-- About Section: Tell visitors about yourself -->
-        <section id="about">
-            <!-- The About Me section explains who I am, my academic background, and my interests in data analytics -->
-
-            <h2>About Me</h2>
-            
-             <p><strong>Who I am:</strong> My name is Farduus Ibraahim, and I am a senior at Texas Christian University majoring in Digital Culture and Data Analytics with a minor in Energy Business. I am interested in how data, technology, and storytelling come together to shape decision-making and digital experiences.</p>
-             <p><strong>My interests:</strong> My interests include data analysis, web design, analytics, and using technology to solve real-world problems. I enjoy working with tools like Python, SQL, and Tableau, and I am especially curious about how data can be used in business and energy-related fields.</p>
-             <p><strong>What I hope to learn:</strong> In this course, I hope to strengthen my technical skills, improve my confidence working with code, and build a professional portfolio that reflects both my academic work and personal interests.</p>
-
-            
-
-            <!-- Optional: Add a photo of yourself -->
-            <!-- Added a profile photo to make the portfolio more personal and visually engaging -->
-
-            <figure class="viz-container">
-                <img src="images/profile-photo.jpg" alt="Photo of Your Name">
-            </figure>
-            
+        <!-- CHANGE 6: Completely restructured the About Me section layout.
+             Originally the photo was below all the text paragraphs in a centered figure.
+             Now the section uses a two-column CSS Grid ("about-grid"):
+             - Left column: the profile photo in a styled frame ("about-photo-frame") with a
+               decorative gold border box ("about-photo-accent") offset behind it for depth.
+             - Right column: three info cards ("about-card"), one for each of the three
+               original paragraphs (Who I Am / My Interests / What I Hope to Learn).
+             
+             Each about-card has:
+             - A decorative Unicode icon ("about-card-icon") on the left
+             - An h3 heading
+             - The original paragraph text
+             - A hover effect that slides the card slightly to the right (done in CSS)
+             
+             This layout is far more scannable and visually engaging than a wall of paragraphs. -->
+        <section id="about" class="section-about">
+            <div class="section-label">02 — About Me</div>
+            <div class="about-grid">
+                <div class="about-photo-wrap">
+                    <div class="about-photo-frame">
+                        <img src="images/profile-photo.jpg" alt="Photo of Farduus Ibraahim">
+                    </div>
+                    <!-- Decorative gold corner accent box positioned behind the photo -->
+                    <div class="about-photo-accent"></div>
+                </div>
+                <div class="about-info">
+                    <div class="about-card">
+                        <span class="about-card-icon">✦</span>
+                        <div>
+                            <h3>Who I Am</h3>
+                            <p>Senior at Texas Christian University majoring in Digital Culture and Data Analytics with a minor in Energy Business. Interested in how data, technology, and storytelling shape decision-making and digital experiences.</p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <span class="about-card-icon">◈</span>
+                        <div>
+                            <h3>My Interests</h3>
+                            <p>Data analysis, web design, analytics, and using technology to solve real-world problems. I work with Python, SQL, and Tableau — especially curious about data in business and energy-related fields.</p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <span class="about-card-icon">◎</span>
+                        <div>
+                            <h3>What I Hope to Learn</h3>
+                            <p>Strengthen technical skills, improve confidence working with code, and build a professional portfolio that reflects both academic work and personal interests.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Portfolio Section: Links to all lab pages -->
-        <section id="portfolio">
-            <h2>My Work</h2>
-            <p>Click on any card below to view that lab assignment. Focus of actual labs may change over the course of the semester:</p>
+        <!-- CHANGE 7: Redesigned all portfolio cards.
+             The original cards were simple anchor tags with a heading, a lab-tag badge, and a paragraph.
+             The new cards ("portfolio-card") have a more structured three-part layout:
+             - "card-number": a large faded number (02, 03, etc.) in the background-left area
+             - "card-content": a category tag ("card-tag"), h3 title, and description paragraph
+             - "card-arrow": an arrow "→" that is hidden by default and slides in on hover
+             
+             Added "portfolio-card--wide" modifier class on the last card (Hometown Map)
+             so it spans the full two-column grid width, breaking the uniform grid pattern
+             and drawing extra attention to that project.
+             
+             Also added a gold vertical line ("::before" pseudo-element in CSS) that
+             animates from 0 height to full height when the card is hovered. -->
+        <section id="portfolio" class="section-portfolio">
+            <div class="section-label">03 — My Work</div>
+            <h2 class="section-heading">Selected Projects</h2>
+            <p class="section-subheading">Click any card to view that lab assignment.</p>
 
-            <!-- Portfolio Grid: Cards linking to each lab page -->
             <div class="portfolio-grid">
 
-                <!-- Lab 2: AI Tool Evaluation -->
                 <a href="lab02.html" class="portfolio-card">
-                    <h3>AI Tool Evaluation</h3>
-                    <span class="lab-tag">Lab 2</span>
-                    <p>Analysis of AI tools and their capabilities, exploring how artificial intelligence is changing digital culture.</p>
+                    <div class="card-number">02</div>
+                    <div class="card-content">
+                        <span class="card-tag">AI &amp; Technology</span>
+                        <h3>AI Tool Evaluation</h3>
+                        <p>Analysis of AI tools and their capabilities, exploring how artificial intelligence is changing digital culture.</p>
+                    </div>
+                    <div class="card-arrow">→</div>
                 </a>
 
-                <!-- Lab 3: Tufte Critique -->
                 <a href="lab03.html" class="portfolio-card">
-                    <h3>Tufte Critique</h3>
-                    <span class="lab-tag">Lab 3</span>
-                    <p>Critical analysis of a data visualization using Edward Tufte's principles of graphical excellence.</p>
+                    <div class="card-number">03</div>
+                    <div class="card-content">
+                        <span class="card-tag">Design Theory</span>
+                        <h3>Tufte Critique</h3>
+                        <p>Critical analysis of a data visualization using Edward Tufte's principles of graphical excellence.</p>
+                    </div>
+                    <div class="card-arrow">→</div>
                 </a>
 
-                <!-- Lab 4: Tableau Visualization -->
                 <a href="lab04.html" class="portfolio-card">
-                    <h3>Tableau Visualization</h3>
-                    <span class="lab-tag">Lab 4</span>
-                    <p>Interactive data visualization created with Tableau Public, exploring patterns in real-world data.</p>
+                    <div class="card-number">04</div>
+                    <div class="card-content">
+                        <span class="card-tag">Data Viz</span>
+                        <h3>Tableau Visualization</h3>
+                        <p>Interactive data visualization created with Tableau Public, exploring patterns in real-world data.</p>
+                    </div>
+                    <div class="card-arrow">→</div>
                 </a>
 
-                <!-- Lab 5: TBD -->
-                <a href="lab5.html" class="portfolio-card">
-                    <h3>Lab 5</h3>
-                    <span class="lab-tag">Lab 5</span>
-                    <p>Content based on Lab 5 assignment.</p>
+                <a href="lab05.html" class="portfolio-card">
+                    <div class="card-number">05</div>
+                    <div class="card-content">
+                        <span class="card-tag">Development</span>
+                        <h3>Vibe Coding</h3>
+                        <p>Exploring creative and experimental approaches to building digital experiences through code.</p>
+                    </div>
+                    <div class="card-arrow">→</div>
                 </a>
 
-                <!-- Lab 6: Hometown Map -->
-                <a href="hometown-map.html" class="portfolio-card">
-                    <h3>Hometown Map</h3>
-                    <span class="lab-tag">Lab 6</span>
-                    <p>Interactive Folium map showcasing meaningful locations from my hometown with personal reflections.</p>
+                <!-- This card uses the "portfolio-card--wide" modifier to span both columns -->
+                <a href="hometown-map.html" class="portfolio-card portfolio-card--wide">
+                    <div class="card-number">06</div>
+                    <div class="card-content">
+                        <span class="card-tag">Mapping</span>
+                        <h3>Hometown Map</h3>
+                        <p>Interactive Folium map showcasing meaningful locations from my hometown with personal reflections.</p>
+                    </div>
+                    <div class="card-arrow">→</div>
                 </a>
 
             </div>
         </section>
 
-        <!-- Reflection Section: Optional semester reflection -->
-        <!-- Semester reflection section where I reflect on what I learned and challenges I faced -->
-        <section id="reflection">
-            <h2>Semester Reflection</h2>
-            <!-- TODO: After completing all labs, write a reflection on your growth -->
-            <p><strong>What I learned:</strong> Through this lab, I learned how to set up a GitHub repository, edit HTML and CSS files, and publish a website using GitHub Pages. This was my first time connecting all of these tools together, and it helped me understand how a portfolio site actually works behind the scenes.</p>
-            <p><strong>Challenges I overcame:</strong> One challenge I faced was navigating GitHub and knowing where certain settings were located, especially when enabling GitHub Pages. I worked through this by carefully following the instructions, revisiting steps when I got stuck, and learning to be more patient with the process.</p>
-            <p><strong>How I grew:</strong> Through this lab, my understanding of digital culture and data analytics became more practical and hands-on. I started to see how technical skills like HTML, CSS, and GitHub are not just tools, but part of how digital spaces are created, shared, and experienced. This helped me connect my analytical thinking with design and communication in a more meaningful way.</p>
-            <p><strong>Looking ahead:</strong> Moving forward, I plan to apply these skills by continuing to build and refine my portfolio with class projects, data visualizations, and reflections. I want to use this site as a professional space that shows my growth in data analytics and digital culture, especially as I prepare for internships, graduate school, and future career opportunities.</p>
+        <!-- CHANGE 8: Redesigned the Semester Reflection section.
+             Originally it was four <p> tags with <strong> labels inside a white box.
+             Now it uses a 2x2 CSS Grid ("reflection-grid") of dark navy cards ("reflection-item").
+             Each card has:
+             - A large Roman numeral (I, II, III, IV) as a decorative background label
+             - An h3 subheading
+             - The original paragraph content
+             The dark background creates a strong visual contrast against the cream/white
+             sections above it, giving the page a satisfying visual finale before the footer.
+             A subtle decorative corner border appears on each card via CSS ::after. -->
+        <section id="reflection" class="section-reflection">
+            <div class="section-label">04 — Semester Reflection</div>
+            <h2 class="section-heading">Looking Back &amp; Forward</h2>
+
+            <div class="reflection-grid">
+                <div class="reflection-item">
+                    <div class="reflection-num">I</div>
+                    <h3>What I Learned</h3>
+                    <p>How to set up a GitHub repository, edit HTML and CSS files, and publish a website using GitHub Pages. This was my first time connecting all of these tools together, and it helped me understand how a portfolio site actually works behind the scenes.</p>
+                </div>
+                <div class="reflection-item">
+                    <div class="reflection-num">II</div>
+                    <h3>Challenges I Overcame</h3>
+                    <p>Navigating GitHub and knowing where certain settings were located, especially when enabling GitHub Pages. I worked through this by carefully following the instructions, revisiting steps when I got stuck, and learning to be more patient with the process.</p>
+                </div>
+                <div class="reflection-item">
+                    <div class="reflection-num">III</div>
+                    <h3>How I Grew</h3>
+                    <p>My understanding of digital culture and data analytics became more practical and hands-on. I started to see how technical skills like HTML, CSS, and GitHub are not just tools, but part of how digital spaces are created, shared, and experienced.</p>
+                </div>
+                <div class="reflection-item">
+                    <div class="reflection-num">IV</div>
+                    <h3>Looking Ahead</h3>
+                    <p>I plan to continue building and refining my portfolio with class projects, data visualizations, and reflections — using this site as a professional space as I prepare for internships, graduate school, and future career opportunities.</p>
+                </div>
+            </div>
         </section>
+
     </main>
 
-    <!-- Footer: Links and copyright -->
-     <!-- Footer includes copyright information and a link to my GitHub repository -->
-
+    <!-- CHANGE 9: Rebuilt the footer layout.
+         The original footer was two centered <p> tags stacked vertically.
+         The new footer uses a "footer-inner" flex container with three pieces spread
+         across one horizontal row: my name on the left, the GitHub link in the center,
+         and the copyright line on the right. This is a more professional, typographic footer. -->
     <footer>
-        <p><a href="https://github.com/FarduusIbraahim/DCDA40833-portfolio">View Repository on GitHub</a></p>
-        <p>&copy; 2026 Farduus Ibraahim | DCDA 40833 | TCU</p>
+        <div class="footer-inner">
+            <div class="footer-name">Farduus Ibraahim</div>
+            <div class="footer-links">
+                <a href="https://github.com/FarduusIbraahim/DCDA40833-portfolio">GitHub Repository</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 · DCDA 40833 · TCU</div>
+        </div>
     </footer>
+
+    <!-- CHANGE 10: Added a <script> block at the bottom of <body> with two JavaScript features.
+         
+         Feature 1 — Sticky navbar scroll effect:
+         Listens for the window "scroll" event. When the user scrolls more than 60px down
+         from the top, it adds the class "scrolled" to the navbar element.
+         In CSS, the "scrolled" class applies a dark semi-transparent background and blur
+         effect so the nav is always readable as you move through the page.
+         When back at the top, the "scrolled" class is removed.
+         
+         Feature 2 — Fade-in on scroll (IntersectionObserver):
+         Uses the browser's IntersectionObserver API to watch all sections, portfolio cards,
+         reflection items, and about cards. When any of those elements enters the viewport
+         (becomes 10% visible), the "visible" class is added to it.
+         In CSS, elements start with opacity:0 and translateY(28px), and transition to
+         opacity:1 and translateY(0) when "visible" is added — creating a smooth fade-up
+         entrance animation as the user scrolls down the page. -->
+    <script>
+        // Navbar scroll effect: adds "scrolled" class when page is scrolled down 60px+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in on scroll using IntersectionObserver
+        // Watches sections and cards; adds "visible" class when they enter the viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section, .portfolio-card, .reflection-item, .about-card').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+    </script>
+
 </body>
 </html>
