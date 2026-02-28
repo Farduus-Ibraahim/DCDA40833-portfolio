@@ -7,11 +7,9 @@
     <meta name="author" content="Farduus Ibraahim">
     <title>Farduus Ibraahim | DCDA 40833 Skills Portfolio</title>
 
-    <!-- CHANGE 1: Added two Google Fonts via <link> tags in the <head>.
+    <!-- so for this part, i wanted a different front to make my portfolio look better, so i used the help of the AI chat and ended up adding two Google Fonts.
          "Cormorant Garamond" is an elegant serif used for headings and display text.
-         "DM Sans" is a clean, modern sans-serif used for body/paragraph text.
-         Previously the site used the browser's default system fonts (Arial, Helvetica, etc.).
-         Loading fonts here keeps everything in one stylesheet request and avoids flash of unstyled text. -->
+         "DM Sans" is a clean, modern sans-serif used for body/paragraph text. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -20,12 +18,7 @@
 </head>
 <body>
 
-    <!-- CHANGE 2: Rebuilt the <nav> element structure.
-         Previously the nav had a flat <ul> with duplicate/broken <a> tags outside of <li> elements,
-         which is invalid HTML. Now it is wrapped in a "nav-inner" div for layout control,
-         includes a "nav-logo" span showing my initials "FI" as a personal brand mark,
-         and has a single clean <ul> with one <li> per link — all valid, semantic HTML.
-         The nav also now has id="navbar" so the scroll JavaScript can target it. -->
+    <!-- Another major change i made was i wanted to rebuild the <nav> element structure. Before, my nav had a flat <ul> with duplicate/broken <a> tags outside of <li> elements, which is invalid HTML. Now it is wrapped in a "nav-inner" div for layout control, it includes a "nav-logo" span showing my initials "FI" as a personal brand mark, and has a single clean <ul> with one <li> per link — all valid, semantic HTML. The nav also now has id="navbar" so the scroll JavaScript can target it. Major part of this i used the help of AI because this was a part i was not familiar on how to change it -->
     <nav id="navbar">
         <div class="nav-inner">
             <span class="nav-logo">FI</span>
@@ -40,12 +33,12 @@
         </div>
     </nav>
 
-    <!-- CHANGE 3: Replaced the plain <header> with a full-screen "hero" section.
+    <!-- Another change i made was i replaced the plain <header> with a full-screen "hero" section.
          The original header was a simple colored bar with centered text.
          The new hero uses class="hero" to apply a full-viewport-height dark background
-         with decorative layered gradients and a subtle grid pattern (all done in CSS).
+         with decorative layered gradients and a subtle grid pattern.
          
-         Inside the hero:
+         Inside the hero: this was the part AI chat help me with to structure the content and add the scroll indicator. 
          - "hero-bg" div: the decorative dark background layer (styled entirely in CSS)
          - "hero-eyebrow": small uppercase course/semester label above the name
          - "hero-name" h1: large display heading using Cormorant Garamond, with the last
@@ -66,15 +59,13 @@
 
     <main>
 
-        <!-- CHANGE 4: Added a numbered section label to each section ("01 — Welcome", etc.).
+        <!-- i added a numbered section label to each section ("01 — Welcome", etc.).
              This is a new <div class="section-label"> element at the top of every section.
-             It uses a small gold uppercase label with a short decorative line after it (via CSS ::after).
+             It uses a small gold uppercase label with a short decorative line after it.
              This creates a consistent visual hierarchy across all sections and makes the page
              feel more like a designed editorial layout rather than a plain document. -->
 
-        <!-- CHANGE 5: Redesigned the Welcome section layout.
-             Originally it was just a heading and a paragraph of text.
-             Now it uses a two-column CSS Grid ("welcome-grid"):
+        <!-- One of the most challenging part was redesigning the Welcome section layout because originally it was just a heading and a paragraph of text. However, after playing around with it, now it uses a two-column CSS Grid layout
              - Left column: a large italic blockquote pulled from my intro text, styled as a
                design element with a gold left border, to immediately catch the reader's eye.
              - Right column: the original welcome paragraph text.
@@ -91,21 +82,9 @@
             </div>
         </section>
 
-        <!-- CHANGE 6: Completely restructured the About Me section layout.
+        <!-- Completely restructured the About Me section layout.
              Originally the photo was below all the text paragraphs in a centered figure.
-             Now the section uses a two-column CSS Grid ("about-grid"):
-             - Left column: the profile photo in a styled frame ("about-photo-frame") with a
-               decorative gold border box ("about-photo-accent") offset behind it for depth.
-             - Right column: three info cards ("about-card"), one for each of the three
-               original paragraphs (Who I Am / My Interests / What I Hope to Learn).
-             
-             Each about-card has:
-             - A decorative Unicode icon ("about-card-icon") on the left
-             - An h3 heading
-             - The original paragraph text
-             - A hover effect that slides the card slightly to the right (done in CSS)
-             
-             This layout is far more scannable and visually engaging than a wall of paragraphs. -->
+             Now the section uses a two-column CSS Grid layout. -->
         <section id="about" class="section-about">
             <div class="section-label">02 — About Me</div>
             <div class="about-grid">
@@ -113,7 +92,7 @@
                     <div class="about-photo-frame">
                         <img src="images/profile-photo.jpg" alt="Photo of Farduus Ibraahim">
                     </div>
-                    <!-- Decorative gold corner accent box positioned behind the photo -->
+                    <!-- decorative gold corner accent box positioned behind the photo -->
                     <div class="about-photo-accent"></div>
                 </div>
                 <div class="about-info">
@@ -142,18 +121,15 @@
             </div>
         </section>
 
-        <!-- CHANGE 7: Redesigned all portfolio cards.
+        <!-- Redesigned all portfolio cards.
              The original cards were simple anchor tags with a heading, a lab-tag badge, and a paragraph.
-             The new cards ("portfolio-card") have a more structured three-part layout:
-             - "card-number": a large faded number (02, 03, etc.) in the background-left area
-             - "card-content": a category tag ("card-tag"), h3 title, and description paragraph
-             - "card-arrow": an arrow "→" that is hidden by default and slides in on hover
+             The new cards ("portfolio-card") have a more structured three-part layout.
              
-             Added "portfolio-card--wide" modifier class on the last card (Hometown Map)
+             Added "portfolio-card-wide" modifier class on the last card (Hometown Map)
              so it spans the full two-column grid width, breaking the uniform grid pattern
              and drawing extra attention to that project.
              
-             Also added a gold vertical line ("::before" pseudo-element in CSS) that
+             Also added a gold vertical line that
              animates from 0 height to full height when the card is hovered. -->
         <section id="portfolio" class="section-portfolio">
             <div class="section-label">03 — My Work</div>
@@ -201,8 +177,6 @@
                     </div>
                     <div class="card-arrow">→</div>
                 </a>
-
-                <!-- This card uses the "portfolio-card--wide" modifier to span both columns -->
                 <a href="hometown-map.html" class="portfolio-card portfolio-card--wide">
                     <div class="card-number">06</div>
                     <div class="card-content">
@@ -216,16 +190,16 @@
             </div>
         </section>
 
-        <!-- CHANGE 8: Redesigned the Semester Reflection section.
+        <!-- here i redesigned the Semester Reflection section.
              Originally it was four <p> tags with <strong> labels inside a white box.
-             Now it uses a 2x2 CSS Grid ("reflection-grid") of dark navy cards ("reflection-item").
+             Now it uses a 2x2 CSS Grid of dark navy cards.
              Each card has:
              - A large Roman numeral (I, II, III, IV) as a decorative background label
              - An h3 subheading
              - The original paragraph content
              The dark background creates a strong visual contrast against the cream/white
              sections above it, giving the page a satisfying visual finale before the footer.
-             A subtle decorative corner border appears on each card via CSS ::after. -->
+             A subtle decorative corner border appears on each card. -->
         <section id="reflection" class="section-reflection">
             <div class="section-label">04 — Semester Reflection</div>
             <h2 class="section-heading">Looking Back &amp; Forward</h2>
@@ -256,7 +230,7 @@
 
     </main>
 
-    <!-- CHANGE 9: Rebuilt the footer layout.
+    <!-- Rebuilt the footer layout.
          The original footer was two centered <p> tags stacked vertically.
          The new footer uses a "footer-inner" flex container with three pieces spread
          across one horizontal row: my name on the left, the GitHub link in the center,
@@ -271,7 +245,7 @@
         </div>
     </footer>
 
-    <!-- CHANGE 10: Added a <script> block at the bottom of <body> with two JavaScript features.
+    <!-- This part i wanted to add something cool and used the AI chat for help. Ended up adding a <script> block at the bottom of <body> with two JavaScript features.
          
          Feature 1 — Sticky navbar scroll effect:
          Listens for the window "scroll" event. When the user scrolls more than 60px down
@@ -280,13 +254,11 @@
          effect so the nav is always readable as you move through the page.
          When back at the top, the "scrolled" class is removed.
          
-         Feature 2 — Fade-in on scroll (IntersectionObserver):
+         Feature 2 — Fade-in on scroll, this is the (IntersectionObserver):
          Uses the browser's IntersectionObserver API to watch all sections, portfolio cards,
          reflection items, and about cards. When any of those elements enters the viewport
          (becomes 10% visible), the "visible" class is added to it.
-         In CSS, elements start with opacity:0 and translateY(28px), and transition to
-         opacity:1 and translateY(0) when "visible" is added — creating a smooth fade-up
-         entrance animation as the user scrolls down the page. -->
+         this creates a smooth fade-up entrance animation as the user scrolls down the page. -->
     <script>
         // Navbar scroll effect: adds "scrolled" class when page is scrolled down 60px+
         const navbar = document.getElementById('navbar');

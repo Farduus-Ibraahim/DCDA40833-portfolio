@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vibe Coding | Farduus Ibraahim</title>
 
-    <!-- Same Google Fonts as index.html so typography matches across all pages -->
+    <!-- Same Google Fonts as the index pages -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
         </div>
     </nav>
 
-    <!-- Compact lab banner header — same style as lab02, lab03, lab04 -->
+    <!-- Compact lab banner header, same style as lab02, lab03, lab04 -->
     <header class="lab-hero">
         <div class="lab-hero-content">
             <p class="lab-eyebrow">Lab 05 · AI-Assisted Development</p>
@@ -40,74 +40,27 @@
 
     <main class="lab-main">
 
-        <!-- SECTION 1: Introduction -->
-        <!-- TODO: Write 2-3 sentences introducing what vibe coding is and what this lab asked you to do -->
         <section class="lab-section">
-            <h2>Introduction</h2>
-            <p class="placeholder-text">[ Describe what "vibe coding" means — using AI tools to help write, generate, or assist with code rather than writing everything manually. What was the goal of this lab? What were you asked to build or experiment with? ]</p>
-        </section>
+        <h2>Introduction</h2>
+        <p>For this lab, I used AI as a collaborator in two different ways: redesigning and enhancing my portfolio (Experiment A) and generating a Python visualization in Google Colab using my gym attendance dataset (Experiment B). In both cases, the goal was not just to produce working code, but to actively understand, modify, and evaluate what the AI generated.</p>
+            
+    
+        <h2>Experiment A: AI-Enhanced Portfolio</h2>
+        <p> For Experiment A, AI helped me change my portfolio from a basic layout into something more polished. It generated a full-screen hero section, a sticky navigation bar with a frosted scroll effect, fade-in animations using the IntersectionObserver API, and a consistent design system using CSS variables. There are parts, we I was having a little hard time understanding the code but I understood the overall logic behind these features, especially how CSS variables create consistency and how scroll events trigger class changes. However, the IntersectionObserver syntax itself was new to me. I understand what it does and why it works, but I would still need to reference documentation to write it independently. I modified the color to better reflect my aesthetic, and adjusted responsive font sizing.</p>
 
-        <!-- SECTION 2: What I Built -->
-        <!-- TODO: Describe the project or tool you created with AI assistance -->
-        <section class="lab-section">
-            <h2>What I Built</h2>
-            <p class="placeholder-text">[ Describe the project you created. What was it — a web page, a script, a tool, an interactive element? What problem did it solve or what did it demonstrate? ]</p>
+            
+        <h2>Experiment B: AI-Generated Python Colab</h2>
+        <P> For Experiment B, I used AI to generate Python code to load my daily gym attendance dataset from Google Drive, check for missing values, convert the visit_date column into datetime format, and calculate the average workout duration by day of the week. At first, the AI assumed my dataset had a column named “Date,” which caused a KeyError. I had to inspect df.columns and correct it to visit_date. That debugging process showed how strict pandas is with column names and capitalization so I had to go back and fix. I understand how groupby() calculates averages across categories and why converting dates allows access to .dt.day_name(). I know what reindexing the days does, organizing them in calendar order, but I likely would not have thought to do that without AI prompting it.</P>
 
-            <!-- TODO: If you have a screenshot or image of your project, replace the src below -->
-            <!-- <figure class="viz-container">
-                <img src="images/lab05-screenshot.png" alt="Screenshot of my vibe coding project">
-                <figcaption>Screenshot of the project I built using AI-assisted coding</figcaption>
-            </figure> -->
+    <figure class="viz-container">
+                <img src="images/Average_workout_duration.png" alt=" The average workout duration for each day" width="600">
+                <figcaption>Average workout duration by day of the week</figcaption>
+            </figure>
 
-            <!-- TODO: If your project is live/embedded, add it here -->
-            <!-- <div class="viz-container">
-                [ Paste your embed code here ]
-            </div> -->
-        </section>
+        <h2>Process Evaluation</h2>
+        <p> AI was most helpful when I had a clear vision but lacked syntax knowledge. It accelerated structure, generated functional starting points, and introduced tools I had not used before. It was problematic when it made assumptions about my file structure or dataset, and when it produced overly complex solutions that needed simplification. One of the key things I noticed is that AI speeds up execution but does not replace verification. I still had to test, resize screens, read errors, and make judgment calls about what actually worked. I believe vibe coding helps learning when it is used intentionally especially when I slow down, ask follow-up questions, and read code line by line. Going forward, I plan to use AI as a structured starting point or debugging assistant, but not as a substitute for understanding.</p>
 
-        <!-- SECTION 3: AI Tools Used -->
-        <!-- TODO: List and describe which AI tools helped you write the code -->
-        <section class="lab-section">
-            <h2>AI Tools Used</h2>
-            <p class="placeholder-text">[ Which AI tools did you use to help write the code? (e.g. ChatGPT, Claude, GitHub Copilot, etc.) How did you use them — did you describe what you wanted and let it generate code, or did you ask it to fix/improve code you wrote yourself? ]</p>
-        </section>
-
-        <!-- SECTION 4: Process & Prompting -->
-        <!-- TODO: Walk through how you worked with the AI to produce the final result -->
-        <section class="lab-section">
-            <h2>Process &amp; Prompting</h2>
-
-            <h3>How I Described What I Wanted</h3>
-            <p class="placeholder-text">[ What prompts or instructions did you give the AI? Walk through the process — what did you ask first, what did you refine, what worked and what didn't? ]</p>
-
-            <h3>Iteration &amp; Refinement</h3>
-            <p class="placeholder-text">[ Did you have to go back and forth with the AI to get the result you wanted? What did you change or improve across multiple attempts? ]</p>
-
-            <h3>What You Added Yourself</h3>
-            <p class="placeholder-text">[ What parts did you write, edit, or modify manually? What decisions did the AI leave to you? ]</p>
-        </section>
-
-        <!-- SECTION 5: Reflection -->
-        <!-- TODO: Reflect on the experience of vibe coding and what it taught you -->
-        <section class="lab-section">
-            <h2>Reflection</h2>
-
-            <h3>What Worked Well</h3>
-            <p class="placeholder-text">[ What did AI-assisted coding do well? Where did it save you time or produce something you wouldn't have built easily on your own? ]</p>
-
-            <h3>Limitations I Noticed</h3>
-            <p class="placeholder-text">[ Where did the AI fall short? Did it make mistakes, misunderstand your request, or produce code that didn't work as expected? ]</p>
-
-            <h3>What This Taught Me About Coding</h3>
-            <p class="placeholder-text">[ How did vibe coding change how you think about writing code? Does using AI feel like cheating, a tool, or something in between? What is the human's role when AI is doing the heavy lifting? ]</p>
-
-            <h3>Connections to Digital Culture &amp; Data Analytics</h3>
-            <p class="placeholder-text">[ How does vibe coding relate to the broader themes of the DCDA program? What does it mean for the future of programming, creativity, and work? ]</p>
-        </section>
-
-    </main>
-
-    <!-- Same footer as all other pages -->
+    <!-- did the same footer as all other pages -->
     <footer>
         <div class="footer-inner">
             <div class="footer-name">Farduus Ibraahim</div>
