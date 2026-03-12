@@ -166,15 +166,14 @@
             <hr class="lab-rule">
 
             <p>
-                For this lab, I created an interactive hometown map centered on Hargeisa, Somaliland. 
-                I designed a custom basemap in Mapbox Studio, built a dataset of meaningful places from my hometown, 
-                and then used Python and Folium to turn that data into an interactive web map. 
-                Each marker represents a place that feels important to me, and together they show a more personal view of Hargeisa.
+                For this lab, I designed a custom basemap in Mapbox Studio and created an interactive web map showing meaningful locations from my hometown of Hargeisa, Somaliland. For the visual inspiration of my basemap, I chose colorful Somali textile patterns. These patterns often use strong contrasts and vibrant colors, so I tried to reflect that aesthetic in the map by adjusting the colors of land, water, and roads. I wanted the map to feel visually interesting while still being readable for users who interact with it. Even though the inspiration came from textile design, my goal was to keep the map clean and functional so that the markers and labels remained easy to see.
             </p>
 
-            <p> One part I struggled with was geocoding. Some locations were being placed in the wrong places, including Ethiopia and even Australia, 
-                because Somaliland addresses are not always standardized in global mapping systems. 
-                To fix that, I switched to using latitude and longitude coordinates directly in my dataset, which made the map much more accurate.</p>
+            <p> One of the biggest challenges was understanding how maps need to work at different zoom levels. At first, I did not realize how many different layers were involved in a basemap and how changing one setting could affect multiple features. For example, when I tried to change the land color, several other land-related layers changed at the same time, which made it confusing to control the design. I had to experiment with the layer settings and test the map at different zoom levels to make sure that roads, labels, and terrain still looked clear when zooming in and out.</p>
+
+            <p> The technical part of the project involved using Python, Folium, and the Mapbox API to create an interactive map. I created a CSV dataset of locations in Hargeisa that are meaningful to me, such as a restaurant, cultural spots, and recreational places that I would show to someone visiting my hometown. One challenge I ran into was that some of the addresses were geocoded incorrectly and appeared in places like Ethiopia or even Australia. This happened because addresses in Somaliland are not always standardized in global geocoding systems. To fix this, I replaced some of the addresses with latitude and longitude coordinates so that the markers would appear in the correct locations.</p>
+
+            <p> I also faced some technical issues while running the Python script, such as file path errors and mismatched column names in my CSV file. Using AI tools helped me troubleshoot these errors and understand how the code was reading the dataset and generating the map. Overall, this project helped me see how map design, data organization, and programming work together to create an interactive geographic visualization.</p>
 
             <div class="map-frame">
     <iframe src="hometown_map.html"></iframe>
