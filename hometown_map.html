@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <h3>Interactive Hometown Map – Hargeisa</h3>
+
+<p>
+This interactive map highlights meaningful locations from my hometown of Hargeisa, Somaliland. 
+The map uses a custom Mapbox basemap and markers created using Python and the Folium library.
+</p>
+
+<iframe 
+src="hometown_map.html"
+width="100%"
+height="600"
+style="border:none;">
+</iframe>
+
+
+<a href="lab06/hometown_map.html" target="_blank">
+View My Interactive Hargeisa Map
+</a>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_92397817eee6058c51b89417bd7f23db {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_92397817eee6058c51b89417bd7f23db" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_92397817eee6058c51b89417bd7f23db = L.map(
+                "map_92397817eee6058c51b89417bd7f23db",
+                {
+                    center: [9.54956, 44.06627],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_92397817eee6058c51b89417bd7f23db);
+
+            
+
+        
+    
+            var tile_layer_427acb1a85e5f9779a853aa97a34dd87 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_427acb1a85e5f9779a853aa97a34dd87.addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var tile_layer_c160e3d25ac5ac959568dd595256de7a = L.tileLayer(
+                "https://api.mapbox.com/styles/v1/farduusibraahim/cmmdnydl2001201qv7nqqfvuc/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZmFyZHV1c2licmFhaGltIiwiYSI6ImNtbHR4M2tqMTA0eGcza3B1NXI3aTFuanQifQ.KsAfQIJsPDgudycGVPoJUg",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "Mapbox",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c160e3d25ac5ac959568dd595256de7a.addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var marker_5ea375beb4679e69a34b02466c345be2 = L.marker(
+                [9.5606, 44.065],
+                {
+}
+            ).addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var icon_f60a2baffa0988fb24c15460bbdc358b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bbc8213f4fbad6063887b49c129ba4a0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9a17d6ad118617f40a6feb2e248f7f85 = $(`<div id="html_9a17d6ad118617f40a6feb2e248f7f85" style="width: 100.0%; height: 100.0%;">     <div style="width:250px;">         <h4>Hargeisa War Memorial</h4>         <p><b>Type:</b> Historical</p>         <p>The MiG jet monument in the center of Hargeisa is one of the most recognizable landmarks in the city. It represents Somaliland's history and resilience and is a place many visitors stop when exploring downtown.</p>         <img src="https://img.atlasobscura.com/20BTSZNKbAQymm4ZDJDXBNcaeZQygBWNUCUrOP2gemw/rt:fit/h:400/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85M2Iw/M2I1Zi0yZmE4LTQz/OWMtODhiNC0yODY4/NWZkYjdjZTBlNmQw/MGExNmFhYjM4NGVk/OWFfSGFyZ2Vpc2Ff/V2FyX01lbW9yaWFs/XzIuanBn.webp" width="220">     </div>     </div>`)[0];
+                popup_bbc8213f4fbad6063887b49c129ba4a0.setContent(html_9a17d6ad118617f40a6feb2e248f7f85);
+            
+        
+
+        marker_5ea375beb4679e69a34b02466c345be2.bindPopup(popup_bbc8213f4fbad6063887b49c129ba4a0)
+        ;
+
+        
+    
+    
+            marker_5ea375beb4679e69a34b02466c345be2.bindTooltip(
+                `<div>
+                     Hargeisa War Memorial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5ea375beb4679e69a34b02466c345be2.setIcon(icon_f60a2baffa0988fb24c15460bbdc358b);
+            
+    
+            var marker_7dbcb418defb3cf4467ced2fae3beb56 = L.marker(
+                [9.562, 44.077],
+                {
+}
+            ).addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var icon_2586db258a1cd9977948c6f4769523dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_478ac93d34fc9e4d0cd54b593c3b829d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_794025734ed50760e8f05d45f5c9b5c5 = $(`<div id="html_794025734ed50760e8f05d45f5c9b5c5" style="width: 100.0%; height: 100.0%;">     <div style="width:250px;">         <h4>Hargeisa Cultural Center</h4>         <p><b>Type:</b> Cultural</p>         <p>The Hargeisa Cultural Center is an important place for Somali literature, art, and history. It hosts exhibitions, talks, and community events that celebrate Somali culture and creativity.</p>         <img src="https://www.hargeysaculturalcenter.org/wp-content/uploads/2018/01/IMG_0301.jpg" width="220">     </div>     </div>`)[0];
+                popup_478ac93d34fc9e4d0cd54b593c3b829d.setContent(html_794025734ed50760e8f05d45f5c9b5c5);
+            
+        
+
+        marker_7dbcb418defb3cf4467ced2fae3beb56.bindPopup(popup_478ac93d34fc9e4d0cd54b593c3b829d)
+        ;
+
+        
+    
+    
+            marker_7dbcb418defb3cf4467ced2fae3beb56.bindTooltip(
+                `<div>
+                     Hargeisa Cultural Center
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7dbcb418defb3cf4467ced2fae3beb56.setIcon(icon_2586db258a1cd9977948c6f4769523dd);
+            
+    
+            var marker_3ae11d9f1ad2af0a67f1bd853ae0a289 = L.marker(
+                [9.56, 44.064],
+                {
+}
+            ).addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var icon_ed2c3d8d2e3fb83e46c137684e4398d4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2df2e38c902a50c21c4046d9ba6abba9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e3a0aaa4fa2988efa502a3145554ea8b = $(`<div id="html_e3a0aaa4fa2988efa502a3145554ea8b" style="width: 100.0%; height: 100.0%;">     <div style="width:250px;">         <h4>Freedom Garden</h4>         <p><b>Type:</b> Park</p>         <p>Freedom Garden is a public space in the center of the city where people gather, relax, and enjoy the outdoors. It is a nice place to see everyday life in Hargeisa.</p>         <img src="https://i.ytimg.com/vi/v0r1v-82_JU/sddefault.jpg" width="220">     </div>     </div>`)[0];
+                popup_2df2e38c902a50c21c4046d9ba6abba9.setContent(html_e3a0aaa4fa2988efa502a3145554ea8b);
+            
+        
+
+        marker_3ae11d9f1ad2af0a67f1bd853ae0a289.bindPopup(popup_2df2e38c902a50c21c4046d9ba6abba9)
+        ;
+
+        
+    
+    
+            marker_3ae11d9f1ad2af0a67f1bd853ae0a289.bindTooltip(
+                `<div>
+                     Freedom Garden
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3ae11d9f1ad2af0a67f1bd853ae0a289.setIcon(icon_ed2c3d8d2e3fb83e46c137684e4398d4);
+            
+    
+            var marker_8f30952ff42e927876f860f646211b24 = L.marker(
+                [9.5592, 44.0618],
+                {
+}
+            ).addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var icon_a8f5deffe679bbd1639258e78afe959d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b321b7b2ce0b92dda7d2e31cbd45da83 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_272f9d39b5b2d5c108eacfaccb51db1b = $(`<div id="html_272f9d39b5b2d5c108eacfaccb51db1b" style="width: 100.0%; height: 100.0%;">     <div style="width:250px;">         <h4>Jama Mosque Hargeisa</h4>         <p><b>Type:</b> Worship</p>         <p>The Jama Mosque is one of the most important mosques in Hargeisa. It is a central place for prayer and community gatherings, especially during Friday prayers and Ramadan.</p>         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Hargeisamosque.jpg" width="220">     </div>     </div>`)[0];
+                popup_b321b7b2ce0b92dda7d2e31cbd45da83.setContent(html_272f9d39b5b2d5c108eacfaccb51db1b);
+            
+        
+
+        marker_8f30952ff42e927876f860f646211b24.bindPopup(popup_b321b7b2ce0b92dda7d2e31cbd45da83)
+        ;
+
+        
+    
+    
+            marker_8f30952ff42e927876f860f646211b24.bindTooltip(
+                `<div>
+                     Jama Mosque Hargeisa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8f30952ff42e927876f860f646211b24.setIcon(icon_a8f5deffe679bbd1639258e78afe959d);
+            
+    
+            var marker_7344618f30bc6479ab7944dd76c51f1e = L.marker(
+                [9.582, 44.067],
+                {
+}
+            ).addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var icon_13b5618dadf2a5e80f613b09f3c1ef90 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c8a47a5e67f8b108a9a83e2f370e2dc6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d90f6678e87b0da440b5d52fc043bd7 = $(`<div id="html_0d90f6678e87b0da440b5d52fc043bd7" style="width: 100.0%; height: 100.0%;">     <div style="width:250px;">         <h4>Hargeisa Livestock Market</h4>         <p><b>Type:</b> Market</p>         <p>The Hargeisa livestock market is one of the largest in the region and shows the importance of livestock to the Somali economy and culture. Visiting it gives a real sense of the local way of life.</p>         <img src="https://media-cdn.tripadvisor.com/media/photo-s/11/e3/4a/b0/livestock-market-in-hargeisa.jpg" width="220">     </div>     </div>`)[0];
+                popup_c8a47a5e67f8b108a9a83e2f370e2dc6.setContent(html_0d90f6678e87b0da440b5d52fc043bd7);
+            
+        
+
+        marker_7344618f30bc6479ab7944dd76c51f1e.bindPopup(popup_c8a47a5e67f8b108a9a83e2f370e2dc6)
+        ;
+
+        
+    
+    
+            marker_7344618f30bc6479ab7944dd76c51f1e.bindTooltip(
+                `<div>
+                     Hargeisa Livestock Market
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7344618f30bc6479ab7944dd76c51f1e.setIcon(icon_13b5618dadf2a5e80f613b09f3c1ef90);
+            
+    
+            var marker_ab304815f4325bc9eb464a9a5689661f = L.marker(
+                [9.478, 44.04],
+                {
+}
+            ).addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var icon_aacff8945a521c95df842dd43b5ba3a9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_93ca75218899e11541754ea756bc0066 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e8120a5f01130dfb2bedf3665e2dc82a = $(`<div id="html_e8120a5f01130dfb2bedf3665e2dc82a" style="width: 100.0%; height: 100.0%;">     <div style="width:250px;">         <h4>Naasa Hablood Hills</h4>         <p><b>Type:</b> Nature</p>         <p>The Naasa Hablood hills, also known as the twin hills, are a famous natural landmark near Hargeisa. They are visible from the city and are an iconic part of the landscape.</p>         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8Bo6naa84E9-VAJ6Xv8Bpo_VPV4ry3frVSQ&s" width="220">     </div>     </div>`)[0];
+                popup_93ca75218899e11541754ea756bc0066.setContent(html_e8120a5f01130dfb2bedf3665e2dc82a);
+            
+        
+
+        marker_ab304815f4325bc9eb464a9a5689661f.bindPopup(popup_93ca75218899e11541754ea756bc0066)
+        ;
+
+        
+    
+    
+            marker_ab304815f4325bc9eb464a9a5689661f.bindTooltip(
+                `<div>
+                     Naasa Hablood Hills
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ab304815f4325bc9eb464a9a5689661f.setIcon(icon_aacff8945a521c95df842dd43b5ba3a9);
+            
+    
+            var marker_661d995d7c4a1fb28a0c27b2346ce315 = L.marker(
+                [9.5485, 44.0775],
+                {
+}
+            ).addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var icon_c6c9ef38e7160f7d60775a77da98ff90 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b7a881f19a10ceae05e6905a63125e6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cb7f44336260fb8693e606b9b72a92a8 = $(`<div id="html_cb7f44336260fb8693e606b9b72a92a8" style="width: 100.0%; height: 100.0%;">     <div style="width:250px;">         <h4>Mansoor Hotel</h4>         <p><b>Type:</b> Hotel</p>         <p>The Mansoor Hotel is one of the best known hotels in Hargeisa and often hosts visitors, conferences, and events. It represents the growing hospitality industry in the city.</p>         <img src="https://thumbs.dreamstime.com/b/hargeisa-city-downtown-central-street-panorama-mosque-road-full-cars-somaliland-somalia-329364198.jpg" width="220">     </div>     </div>`)[0];
+                popup_1b7a881f19a10ceae05e6905a63125e6.setContent(html_cb7f44336260fb8693e606b9b72a92a8);
+            
+        
+
+        marker_661d995d7c4a1fb28a0c27b2346ce315.bindPopup(popup_1b7a881f19a10ceae05e6905a63125e6)
+        ;
+
+        
+    
+    
+            marker_661d995d7c4a1fb28a0c27b2346ce315.bindTooltip(
+                `<div>
+                     Mansoor Hotel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_661d995d7c4a1fb28a0c27b2346ce315.setIcon(icon_c6c9ef38e7160f7d60775a77da98ff90);
+            
+    
+            var marker_2063f3ed7ebd3bb72fdc11a2cea117a6 = L.marker(
+                [9.5568, 44.0589],
+                {
+}
+            ).addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var icon_ff71045c82fb802536fff565a9283920 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2e421de8926dae930756008b633482da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d9b37e9e065175d25eb6262e4e9ad5c = $(`<div id="html_0d9b37e9e065175d25eb6262e4e9ad5c" style="width: 100.0%; height: 100.0%;">     <div style="width:250px;">         <h4>Hargeisa Stadium</h4>         <p><b>Type:</b> Recreation</p>         <p>Hargeisa Stadium is where many football matches and community sports events take place. It is an important gathering place for sports fans in the city.</p>         <img src="https://pbs.twimg.com/media/GNB1eeCWYAADWTD.jpg" width="220">     </div>     </div>`)[0];
+                popup_2e421de8926dae930756008b633482da.setContent(html_0d9b37e9e065175d25eb6262e4e9ad5c);
+            
+        
+
+        marker_2063f3ed7ebd3bb72fdc11a2cea117a6.bindPopup(popup_2e421de8926dae930756008b633482da)
+        ;
+
+        
+    
+    
+            marker_2063f3ed7ebd3bb72fdc11a2cea117a6.bindTooltip(
+                `<div>
+                     Hargeisa Stadium
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2063f3ed7ebd3bb72fdc11a2cea117a6.setIcon(icon_ff71045c82fb802536fff565a9283920);
+            
+    
+            var marker_ff16178167142f12ca6c832bfb91e79e = L.marker(
+                [9.5615, 44.0635],
+                {
+}
+            ).addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var icon_528329c6a2214662a9721bc689d06e42 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7469f8a28a3647c865d915c24a3b4e47 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_39eb1444d9a49af560a664e11c1d874e = $(`<div id="html_39eb1444d9a49af560a664e11c1d874e" style="width: 100.0%; height: 100.0%;">     <div style="width:250px;">         <h4>Gol Jano Market</h4>         <p><b>Type:</b> Market</p>         <p>Gol Jano Market is a busy shopping area where people buy clothing, food, and everyday goods. It is a great place to experience the energy and activity of the city.</p>         <img src="https://somaliforum-uploads.s3.dualstack.eu-west-2.amazonaws.com/optimized/2X/a/a724771e78d63485cee30a20c2b4c6c2beea11e9_2_690x459.jpeg" width="220">     </div>     </div>`)[0];
+                popup_7469f8a28a3647c865d915c24a3b4e47.setContent(html_39eb1444d9a49af560a664e11c1d874e);
+            
+        
+
+        marker_ff16178167142f12ca6c832bfb91e79e.bindPopup(popup_7469f8a28a3647c865d915c24a3b4e47)
+        ;
+
+        
+    
+    
+            marker_ff16178167142f12ca6c832bfb91e79e.bindTooltip(
+                `<div>
+                     Gol Jano Market
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ff16178167142f12ca6c832bfb91e79e.setIcon(icon_528329c6a2214662a9721bc689d06e42);
+            
+    
+            var marker_6a3e90cd44a1d1246c519c3383109e3a = L.marker(
+                [9.527, 44.088],
+                {
+}
+            ).addTo(map_92397817eee6058c51b89417bd7f23db);
+        
+    
+            var icon_72dd36fb48ff95c4858ce1830b9dfd74 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b3692b786509c51deb010a633560cc52 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_11e5aa2ce7e55b69457fffd4c0b717a8 = $(`<div id="html_11e5aa2ce7e55b69457fffd4c0b717a8" style="width: 100.0%; height: 100.0%;">     <div style="width:250px;">         <h4>Hargeisa University</h4>         <p><b>Type:</b> Education</p>         <p>The University of Hargeisa is one of the leading universities in Somaliland. It plays a major role in educating young people and developing the future of the region.</p>         <img src="https://africa-school-bucket3.s3.amazonaws.com/static/img/school/2022/02/16/hargeisa.jpg" width="220">     </div>     </div>`)[0];
+                popup_b3692b786509c51deb010a633560cc52.setContent(html_11e5aa2ce7e55b69457fffd4c0b717a8);
+            
+        
+
+        marker_6a3e90cd44a1d1246c519c3383109e3a.bindPopup(popup_b3692b786509c51deb010a633560cc52)
+        ;
+
+        
+    
+    
+            marker_6a3e90cd44a1d1246c519c3383109e3a.bindTooltip(
+                `<div>
+                     Hargeisa University
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6a3e90cd44a1d1246c519c3383109e3a.setIcon(icon_72dd36fb48ff95c4858ce1830b9dfd74);
+            
+</script>
+</html>
