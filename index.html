@@ -18,7 +18,7 @@
 </head>
 <body>
 
-    <!-- Another major change i made was i wanted to rebuild the <nav> element structure. Before, my nav had a flat <ul> with duplicate/broken <a> tags outside of <li> elements, which is invalid HTML. Now it is wrapped in a "nav-inner" div for layout control, it includes a "nav-logo" span showing my initials "FI" as a personal brand mark, and has a single clean <ul> with one <li> per link — all valid, semantic HTML. The nav also now has id="navbar" so the scroll JavaScript can target it. Major part of this i used the help of AI because this was a part i was not familiar on how to change it -->
+    <!-- Another major change i made was i wanted to rebuild the <nav> element structure. Before, my nav had a flat <ul> with duplicate/broken <a> tags outside of <li> elements, which is invalid HTML. Now it is wrapped in a "nav-inner" div for layout control, it includes a "nav-logo" span showing my initials "FI" as a personal brand mark, and has a single clean <ul> with one <li> per link, all valid, semantic HTML. The nav also now has id="navbar" so the scroll JavaScript can target it. Major part of this i used the help of AI because this was a part i was not familiar on how to change it -->
     <nav id="navbar">
         <div class="nav-inner">
             <span class="nav-logo">FI</span>
@@ -107,7 +107,7 @@
                         <span class="about-card-icon">◈</span>
                         <div>
                             <h3>My Interests</h3>
-                            <p>Data analysis, web design, analytics, and using technology to solve real-world problems. I work with Python, SQL, and Tableau — especially curious about data in business and energy-related fields.</p>
+                            <p>Data analysis, web design, analytics, and using technology to solve real-world problems. I work with Python, SQL, and Tableau, especially curious about data in business and energy-related fields.</p>
                         </div>
                     </div>
                     <div class="about-card">
@@ -223,7 +223,7 @@
                 <div class="reflection-item">
                     <div class="reflection-num">IV</div>
                     <h3>Looking Ahead</h3>
-                    <p>I plan to continue building and refining my portfolio with class projects, data visualizations, and reflections — using this site as a professional space as I prepare for internships, graduate school, and future career opportunities.</p>
+                    <p>I plan to continue building and refining my portfolio with class projects, data visualizations, and reflections, using this site as a professional space as I prepare for internships, graduate school, and future career opportunities.</p>
                 </div>
             </div>
         </section>
@@ -247,14 +247,14 @@
 
     <!-- This part i wanted to add something cool and used the AI chat for help. Ended up adding a <script> block at the bottom of <body> with two JavaScript features.
          
-         Feature 1 — Sticky navbar scroll effect:
+         Feature 1: Sticky navbar scroll effect:
          Listens for the window "scroll" event. When the user scrolls more than 60px down
          from the top, it adds the class "scrolled" to the navbar element.
          In CSS, the "scrolled" class applies a dark semi-transparent background and blur
          effect so the nav is always readable as you move through the page.
          When back at the top, the "scrolled" class is removed.
          
-         Feature 2 — Fade-in on scroll, this is the (IntersectionObserver):
+         Feature 2: Fade-in on scroll, this is the (IntersectionObserver):
          Uses the browser's IntersectionObserver API to watch all sections, portfolio cards,
          reflection items, and about cards. When any of those elements enters the viewport
          (becomes 10% visible), the "visible" class is added to it.
