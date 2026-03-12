@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vibe Coding | Farduus Ibraahim</title>
 
-    <!-- Same Google Fonts as the index pages -->
+    <!-- Same Google Fonts as index page -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
+    <!-- Shared stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- Same navbar structure as all other lab pages -->
+    <!-- Same navbar structure used across all lab pages for consistency.
+         id="navbar" is required for the JavaScript scroll effect at the bottom.
+         class="active" on the current page's link visually marks which page you're on. -->
     <nav id="navbar">
         <div class="nav-inner">
             <span class="nav-logo">FI</span>
@@ -23,13 +26,18 @@
                 <li><a href="lab02.html">AI Evaluation</a></li>
                 <li><a href="lab03.html">Tufte Critique</a></li>
                 <li><a href="lab04.html">Tableau Viz</a></li>
-                <li><a href="lab05.html" class="active">Vibe Coding</a></li>
+                <li><a href="lab05.html" class="active">Lab 5</a></li>
                 <li><a href="hometown-map.html">Hometown Map</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Compact lab banner header, same style as lab02, lab03, lab04 -->
+    <!-- Lab page banner header, uses .lab-hero class defined in styles.css.
+         This is a compact dark navy banner (not full-screen like the homepage hero)
+         with the same grid texture and gold glow from the homepage, scaled down.
+         .lab-eyebrow: small gold uppercase label showing lab number and topic
+         .lab-title: large serif page title in white
+         .hero-line: same animated gold decorative line used on the homepage hero -->
     <header class="lab-hero">
         <div class="lab-hero-content">
             <p class="lab-eyebrow">Lab 05 · AI-Assisted Development</p>
@@ -38,29 +46,79 @@
         </div>
     </header>
 
+    <!-- .lab-main constrains content to 900px max-width for comfortable long-form reading.
+         Slightly narrower than the 1100px homepage layout which is designed for visual impact. -->
     <main class="lab-main">
 
+        <!-- INTRODUCTION SECTION
+             .lab-section applies white card styling with padding, border-radius, and box-shadow.
+             h2 inside .lab-section is styled gold with a navy underline (defined in CSS). -->
         <section class="lab-section">
-        <h2>Introduction</h2>
-        <p>For this lab, I used AI as a collaborator in two different ways: redesigning and enhancing my portfolio (Experiment A) and generating a Python visualization in Google Colab using my gym attendance dataset (Experiment B). In both cases, the goal was not just to produce working code, but to actively understand, modify, and evaluate what the AI generated.</p>
-            
-    
-        <h2>Experiment A: AI-Enhanced Portfolio</h2>
-        <p> For Experiment A, AI helped me change my portfolio from a basic layout into something more polished. It generated a full-screen hero section, a sticky navigation bar with a frosted scroll effect, fade-in animations using the IntersectionObserver API, and a consistent design system using CSS variables. There are parts, we I was having a little hard time understanding the code but I understood the overall logic behind these features, especially how CSS variables create consistency and how scroll events trigger class changes. However, the IntersectionObserver syntax itself was new to me. I understand what it does and why it works, but I would still need to reference documentation to write it independently. I modified the color to better reflect my aesthetic, and adjusted responsive font sizing.</p>
+            <h2>Introduction</h2>
+            <p>For this lab, I used AI as a collaborator in two different ways: redesigning and enhancing my portfolio (Experiment A) and generating a Python visualization in Google Colab using my gym attendance dataset (Experiment B). In both cases, the goal was not just to produce working code, but to actively understand, modify, and evaluate what the AI generated. Vibe coding, as I understand it, is the practice of describing what you want in plain language, letting the AI generate code based on that description, and then testing, refining, and shaping the output until it reflects your actual vision.</p>
+        </section>
 
-            
-        <h2>Experiment B: AI-Generated Python Colab</h2>
-        <P> For Experiment B, I used AI to generate Python code to load my daily gym attendance dataset from Google Drive, check for missing values, convert the visit_date column into datetime format, and calculate the average workout duration by day of the week. At first, the AI assumed my dataset had a column named “Date,” which caused a KeyError. I had to inspect df.columns and correct it to visit_date. That debugging process showed how strict pandas is with column names and capitalization so I had to go back and fix. I understand how groupby() calculates averages across categories and why converting dates allows access to .dt.day_name(). I know what reindexing the days does, organizing them in calendar order, but I likely would not have thought to do that without AI prompting it.</P>
+        <!-- TECHNICAL UNDERSTANDING SECTION
+             Covers both experiments, what the AI generated, how the code works,
+             and what I had to modify. Uses h3 subheadings for each sub-topic.
+             h3 inside .lab-section is styled in navy with top margin spacing (CSS). -->
+        <section class="lab-section">
+            <h2>Technical Understanding</h2>
 
-    <figure class="viz-container">
-                <img src="images/Average_workout_duration.png" alt=" The average workout duration for each day" width="600">
-                <figcaption>Average workout duration by day of the week</figcaption>
+            <h3>Experiment A: AI-Enhanced Portfolio</h3>
+            <p>For Experiment A, AI helped me transform my portfolio from a basic flat layout into something more polished and professional. It generated a full-screen hero section for the homepage, a sticky navigation bar with a frosted-glass scroll effect, scroll-triggered fade-in animations using the IntersectionObserver API, and a consistent design system built around CSS custom properties, variables for colors, fonts, shadows, and spacing defined once and reused everywhere. It also helped me apply the same visual language across all lab pages by generating a compact dark banner header for each one.</p>
+
+            <p>I understood the overall logic behind most of these features, especially how CSS variables create consistency and how scroll events trigger class changes on the navbar. The part that was genuinely new to me was the IntersectionObserver API. I understand what it does, it watches elements and fires a callback when they enter the visible area of the browser window, and I understand why it is used for scroll animations. But if I had to write that code from scratch without any reference, I would still need to look up the syntax. The concept is clear to me; the implementation details are not yet second nature.</p>
+
+            <p>The main modification I made was to the color palette. The AI's first pass used a generic purple-and-white scheme that did not feel like my own aesthetic. I pushed back and described wanting something warm, editorial, and distinctive, which led to the deep navy, cream, and gold palette the site uses now. I also caught a mobile responsiveness issue after testing in my browser: some headings were overflowing on smaller screens. I brought that back to the AI and it fixed it using CSS <code>clamp()</code>, a function I had not encountered before. I also manually updated the <code>active</code> class on each lab page's nav link, since the AI had no way of knowing which page was which.</p>
+
+            <h3>Experiment B: Python Visualization in Google Colab</h3>
+            <p>For Experiment B, I used AI to generate Python code that loaded my daily gym attendance dataset from Google Drive, checked for missing values, converted the <code>visit_date</code> column into datetime format, and calculated the average workout duration grouped by day of the week. The result was a bar chart showing which days had the highest average workout lengths.</p>
+
+            <p>The AI's first attempt caused a <code>KeyError</code> because it assumed my dataset had a column named "Date", but my actual column was named <code>visit_date</code>. I had to run <code>df.columns</code> to check the real column names and then correct the code. That debugging moment showed me how strict pandas is with exact column name matching, including capitalization. I understand how <code>groupby()</code> calculates averages across categories, and why converting a column to datetime format unlocks features like <code>.dt.day_name()</code>. The reindexing step, reordering the days into calendar order, made sense to me once I saw it, though I would not have thought to include it without the AI suggesting it first.</p>
+
+            <!-- Visualization image for Experiment B stored in images/ subfolder -->
+            <figure class="viz-container">
+                <img src="images/Average_workout_duration.png" alt="Bar chart showing average workout duration by day of the week" width="600">
+                <figcaption>Average workout duration by day of the week, generated in Google Colab using pandas and matplotlib</figcaption>
             </figure>
+        </section>
 
-        <h2>Process Evaluation</h2>
-        <p> AI was most helpful when I had a clear vision but lacked syntax knowledge. It accelerated structure, generated functional starting points, and introduced tools I had not used before. It was problematic when it made assumptions about my file structure or dataset, and when it produced overly complex solutions that needed simplification. One of the key things I noticed is that AI speeds up execution but does not replace verification. I still had to test, resize screens, read errors, and make judgment calls about what actually worked. I believe vibe coding helps learning when it is used intentionally especially when I slow down, ask follow-up questions, and read code line by line. Going forward, I plan to use AI as a structured starting point or debugging assistant, but not as a substitute for understanding.</p>
+        <!-- PROCESS EVALUATION SECTION
+             Covers when AI was helpful, when it was problematic, and what remains human. -->
+        <section class="lab-section">
+            <h2>Process Evaluation</h2>
 
-    <!-- did the same footer as all other pages -->
+            <h3>Where AI Was Genuinely Helpful</h3>
+            <p>AI was most useful when I had a clear vision in my head but lacked the technical vocabulary to build it. The scroll-triggered navbar is a good example, I had seen that effect on professional sites and knew exactly what I wanted, but I had no idea which JavaScript events or CSS properties were involved. Being able to describe it conversationally and get working code back was a real accelerator. AI was also helpful for anything involving repetitive structure, like applying the same navbar and footer consistently across four separate lab pages. Doing that manually would have been slower and easier to make inconsistent in small ways. In Experiment B, AI was useful as a starting point for Python code I could not have written from scratch, it gave me a functional structure I could then test, debug, and understand.</p>
+
+            <h3>Where AI Fell Short</h3>
+            <p>The AI occasionally produced code that was more complicated than the problem required. For one of the card hover effects in Experiment A, it wrote a version using JavaScript event listeners when the whole thing could have been handled with a few lines of CSS, I had to specifically ask it to simplify. In Experiment B, it made an incorrect assumption about my column names, which caused a runtime error I had to debug manually. There were also moments in both experiments where I had to slow myself down and ask follow-up questions, "explain why you used this," "what would happen if I removed this line", to make sure I was actually engaging with the code rather than just collecting it.</p>
+
+            <h3>What Stays Human</h3>
+            <p>The AI could generate code, but it could not make the decisions that actually defined the work. It did not know that I wanted my portfolio to feel warm rather than cold, or editorial rather than generic. Those directions came entirely from me. The AI also could not test the site the way I did, opening it in a browser, resizing the window, clicking through pages, and noticing when something felt off. In Experiment B, it could not know what my actual dataset column names were. Verification, judgment, and aesthetic direction stayed with me throughout both experiments.</p>
+        </section>
+
+        <!-- ETHICAL AND PEDAGOGICAL CONSIDERATIONS SECTION
+             Covers learning trade-offs, attribution, and personal guidelines. -->
+        <section class="lab-section">
+            <h2>Ethical &amp; Pedagogical Considerations</h2>
+
+            <h3>Does Vibe Coding Help You Learn?</h3>
+            <p>I think the honest answer is: it depends entirely on what you do with it. There were moments in this lab where I genuinely learned something new, the IntersectionObserver API, the <code>clamp()</code> function, how CSS custom properties work as a system, how <code>groupby()</code> works in pandas, because I slowed down and asked the AI to explain what it had generated. In those moments it felt like having a patient tutor available on demand. But there were also moments where I moved too fast, accepted code I did not fully understand, and retained nothing. The tool itself is neutral. What determines whether vibe coding builds your skills or bypasses them is whether you treat the AI's output as something to understand or just something to copy.</p>
+
+            <h3>Attribution and Ownership</h3>
+            <p>In an academic context, proper attribution means being specific and honest about your role. Saying "I used AI" is not enough, you should be able to describe what you asked for, what the AI produced, what you changed, and what decisions you made that the AI could not make for you. In a professional setting the standard is less formal, but the underlying principle is the same: you are responsible for the code you put into the world, regardless of how it was generated. If it breaks, or causes a problem, "the AI wrote it" is not a defense. Ownership of the output belongs to the person who chose to use it, reviewed it, and deployed it.</p>
+
+            <h3>My Guidelines Going Forward</h3>
+            <p>After this experience, I have a clearer sense of when I want to use AI in coding and when I do not. I will use it when I am working with unfamiliar syntax or APIs and need a concrete starting point, when I need to produce repetitive structure consistently across many files, or when I am genuinely stuck and need to see one possible approach before deciding on a direction. I will not use it as a way to skip the thinking, I will not submit or build on code I cannot at least read and roughly explain in my own words. When the goal is to actually learn something new, I want to try writing it myself first, even if I fail, because the struggle is where the understanding comes from. The version of vibe coding I want to practice treats AI as a collaborator that helps me move further than I could alone, not a replacement for having to think at all.</p>
+        </section>
+
+    </main>
+
+    <!-- Same footer structure used across all pages.
+         display:flex + justify-content:space-between spreads three items horizontally.
+         On mobile, CSS media query switches to flex-direction:column for vertical stacking. -->
     <footer>
         <div class="footer-inner">
             <div class="footer-name">Farduus Ibraahim</div>
@@ -71,10 +129,11 @@
         </div>
     </footer>
 
-    <!-- Same scroll JS as all other lab pages -->
+    <!-- Sticky navbar scroll effect, same script used on all lab pages -->
     <script>
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
+            // Toggle "scrolled" class based on whether user has scrolled past 60px
             navbar.classList.toggle('scrolled', window.scrollY > 60);
         });
     </script>
