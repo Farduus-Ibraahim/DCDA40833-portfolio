@@ -34,10 +34,7 @@
 
     <!-- Lab page banner header, uses .lab-hero class defined in styles.css.
          This is a compact dark navy banner (not full-screen like the homepage hero)
-         with the same grid texture and gold glow from the homepage, scaled down.
-         .lab-eyebrow: small gold uppercase label showing lab number and topic
-         .lab-title: large serif page title in white
-         .hero-line: same animated gold decorative line used on the homepage hero -->
+         with the same grid texture and gold glow from the homepage -->
     <header class="lab-hero">
         <div class="lab-hero-content">
             <p class="lab-eyebrow">Lab 05 · AI-Assisted Development</p>
@@ -50,7 +47,7 @@
          Slightly narrower than the 1100px homepage layout which is designed for visual impact. -->
     <main class="lab-main">
 
-        <!-- INTRODUCTION SECTION
+        <!--
              .lab-section applies white card styling with padding, border-radius, and box-shadow.
              h2 inside .lab-section is styled gold with a navy underline (defined in CSS). -->
         <section class="lab-section">
@@ -58,8 +55,7 @@
             <p>For this lab, I used AI as a collaborator in two different ways: redesigning and enhancing my portfolio (Experiment A) and generating a Python visualization in Google Colab using my gym attendance dataset (Experiment B). In both cases, the goal was not just to produce working code, but to actively understand, modify, and evaluate what the AI generated. Vibe coding, as I understand it, is the practice of describing what you want in plain language, letting the AI generate code based on that description, and then testing, refining, and shaping the output until it reflects your actual vision.</p>
         </section>
 
-        <!-- TECHNICAL UNDERSTANDING SECTION
-             Covers both experiments, what the AI generated, how the code works,
+        <!-- Covers both experiments, what the AI generated, how the code works,
              and what I had to modify. Uses h3 subheadings for each sub-topic.
              h3 inside .lab-section is styled in navy with top margin spacing (CSS). -->
         <section class="lab-section">
@@ -84,8 +80,7 @@
             </figure>
         </section>
 
-        <!-- PROCESS EVALUATION SECTION
-             Covers when AI was helpful, when it was problematic, and what remains human. -->
+        <!-- Covers when AI was helpful, when it was problematic, and what remains human. -->
         <section class="lab-section">
             <h2>Process Evaluation</h2>
 
@@ -99,7 +94,7 @@
             <p>The AI could generate code, but it could not make the decisions that actually defined the work. It did not know that I wanted my portfolio to feel warm rather than cold, or editorial rather than generic. Those directions came entirely from me. The AI also could not test the site the way I did, opening it in a browser, resizing the window, clicking through pages, and noticing when something felt off. In Experiment B, it could not know what my actual dataset column names were. Verification, judgment, and aesthetic direction stayed with me throughout both experiments.</p>
         </section>
 
-        <!-- ETHICAL AND PEDAGOGICAL CONSIDERATIONS SECTION
+        <!--
              Covers learning trade-offs, attribution, and personal guidelines. -->
         <section class="lab-section">
             <h2>Ethical &amp; Pedagogical Considerations</h2>
@@ -117,8 +112,7 @@
     </main>
 
     <!-- Same footer structure used across all pages.
-         display:flex + justify-content:space-between spreads three items horizontally.
-         On mobile, CSS media query switches to flex-direction:column for vertical stacking. -->
+         -->
     <footer>
         <div class="footer-inner">
             <div class="footer-name">Farduus Ibraahim</div>
@@ -133,7 +127,7 @@
     <script>
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            // Toggle "scrolled" class based on whether user has scrolled past 60px
+        
             navbar.classList.toggle('scrolled', window.scrollY > 60);
         });
     </script>
